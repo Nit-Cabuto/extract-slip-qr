@@ -63,6 +63,7 @@
 
     <script>
         async function uploadFile() {
+
             const fileInput = document.getElementById('fileInput');
             const statusDiv = document.getElementById('status');
             const uploadBtn = document.getElementById('uploadBtn');
@@ -95,8 +96,11 @@
                 statusDiv.textContent = `File uploaded successfully: ${file.name}`;
                 statusDiv.className = 'success';
                 fileInput.value = '';
+                
+                main();
 
-                sendAlert();
+                //sendAlert();
+
                 //liff.closeWindow();
                 //liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" })
                     
@@ -133,14 +137,12 @@
         // login ก่อนถ้ายังไม่ login
         if (!liff.isLoggedIn()) {
             liff.login();
+            sendAlert();        
             }
         }
 
         function sendAlert() {
             //liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" });
-
-            main();
-
             liff.sendMessages([
                 {
                     "type": "text",
@@ -149,10 +151,10 @@
                 ])
                 .then(() => {
                 alert("Message sent");
-                liff.closeWindow(); // Optional: close the LIFF window after sending
+                    liff.closeWindow(); // Optional: close the LIFF window after sending
                 })
                 .catch((error) => {
-                console.error("Error sending message: " + error);
+                    console.error("Error sending message: " + error);
                 });
         }
     </script>
