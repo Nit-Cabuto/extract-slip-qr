@@ -134,29 +134,38 @@
         function main() {
             liff.init({ liffId: "2008674318-sY2GkIQE" });
 
-        // login ก่อนถ้ายังไม่ login
-        if (!liff.isLoggedIn()) {
-            liff.login();
-            sendAlert();        
+            // login ก่อนถ้ายังไม่ login
+            if (!liff.isLoggedIn()) {
+
+                liff.login();
+
+                return;
             }
+
+            liff.sendMessages([
+                    {
+                        type: 'text',
+                        text: 'รอคอนเฟิร์ม ตรวจสอบการชำระเงิน'
+                    }
+                ]);
         }
 
-        function sendAlert() {
-            //liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" });
-            liff.sendMessages([
-                {
-                    "type": "text",
-                    "text": "รอคอนเฟิร์มการชำระเงิน"
-                }
-                ])
-                .then(() => {
-                alert("Message sent");
-                    liff.closeWindow(); // Optional: close the LIFF window after sending
-                })
-                .catch((error) => {
-                    console.error("Error sending message: " + error);
-                });
-        }
+        // function sendAlert() {
+        //     //liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" });
+        //     liff.sendMessages([
+        //         {
+        //             "type": "text",
+        //             "text": "รอคอนเฟิร์มการชำระเงิน"
+        //         }
+        //         ])
+        //         .then(() => {
+        //         alert("Message sent");
+        //             liff.closeWindow(); // Optional: close the LIFF window after sending
+        //         })
+        //         .catch((error) => {
+        //             console.error("Error sending message: " + error);
+        //         });
+        // }
     </script>
 </body>
 </html>
