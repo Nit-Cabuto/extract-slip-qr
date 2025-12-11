@@ -127,9 +127,20 @@
             }, 2000);
         }
 
+        function main() {
+            liff.init({ liffId: "2008674318-sY2GkIQE" });
+
+        // login ก่อนถ้ายังไม่ login
+        if (!liff.isLoggedIn()) {
+            liff.login();
+            }
+        }
+
         function sendAlert() {
-            liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" });
-            
+            //liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" });
+
+            main();
+
             liff.sendMessages([
                 {
                     "type": "text",
