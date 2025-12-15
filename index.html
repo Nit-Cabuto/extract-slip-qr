@@ -125,13 +125,30 @@
 
                 console.log('File ready to be sent:', file.name);
 
-                await liff.sendMessages([
-                    {
-                        type: "text",
-                        text: "Hi " + profileName,
-                    }
-                ]);
+                // await liff.sendMessages([
+                //     {
+                //         type: "text",
+                //         text: "Hi " + profileName,
+                //     }
+                // ]);
                     
+                const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
+                    method: 'POST',
+                    headers: {
+                        "Authorization": `Bearer ${accessToken}`
+                    },
+                    body: formData
+                });
+
+                const data = await resp.json();
+
+                console.log(data);
+
+                if (data.status === 200)
+                {
+                    
+                }
+
                 // const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
                 //     method: 'POST',
                 //     body: formData
