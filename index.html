@@ -189,6 +189,13 @@
                     uploadBtn.disabled = false;
             }
 
+            await liff.sendMessages([
+                        {
+                            type: "text",
+                            text: "ไฟล์ไม่ถูกต้อง กรุณาอัปโหลดใหม่อีกครั้ง",
+                        }
+            ]);
+
             setTimeout(() => {
                 liff.closeWindow();
             }, 2000);
