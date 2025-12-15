@@ -132,10 +132,10 @@
                 //     }
                 // ]);
                     
-                const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
+                const response = await fetch('https://developer.easyslip.com/api/v1/verify', {
                     method: 'POST',
                     headers: {
-                        "Authorization": `Bearer ${accessToken}`
+                        "Authorization": `Bearer 81cae111-e8de-4266-b21c-1aa364d0ecfb`
                     },
                     body: formData
                 });
