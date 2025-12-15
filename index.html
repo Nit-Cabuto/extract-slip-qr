@@ -65,8 +65,8 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
     <script>
 
-        //const id = "2008674318-sY2GkIQE";
-        const id = "2006433004-KAVwjP4f";
+        const id = "2008674318-sY2GkIQE";
+        //const id = "2006433004-KAVwjP4f";
 
 
         // const mainpage = async () => {
@@ -179,11 +179,11 @@
                     console.log('Error : ', error.message);
 
                     await liff.sendMessages([
-                    {
-                        type: "text",
-                        text: "ไฟล์ไม่ถูกต้อง กรุณาอัปโหลดใหม่อีกครั้ง",
-                    }
-                ]);
+                        {
+                            type: "text",
+                            text: "ไฟล์ไม่ถูกต้อง กรุณาอัปโหลดใหม่อีกครั้ง",
+                        }
+                    ]);
             } finally 
             {
                     uploadBtn.disabled = false;
