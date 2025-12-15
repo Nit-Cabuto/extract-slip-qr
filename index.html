@@ -65,6 +65,8 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
     <script>
 
+        const profileName = null;
+
         const id = "2008674318-sY2GkIQE";
         //const id = "2006433004-KAVwjP4f";
 
@@ -123,17 +125,17 @@
 
                 console.log('File ready to be sent:', file.name);
 
-                // await liff.sendMessages([
-                //     {
-                //         type: "text",
-                //         text: "waiting for approve ...",
-                //     }
-                // ]);
+                await liff.sendMessages([
+                    {
+                        type: "text",
+                        text: "Hi " + profileName,
+                    }
+                ]);
                     
-                const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
-                    method: 'POST',
-                    body: formData
-                });
+                // const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
+                //     method: 'POST',
+                //     body: formData
+                // });
 
                 // console.log(await response);
 
@@ -142,15 +144,15 @@
                 // var status = data.status;
                 // console.log(status);
 
-                var value = data.result;
-                console.log(value.result[0]);
+                // var value = data.result;
+                // console.log(value.result[0]);
 
-                await liff.sendMessages([
-                    {
-                        type: "text",
-                        text: value.result[0],
-                    }
-                ]);
+                // await liff.sendMessages([
+                //     {
+                //         type: "text",
+                //         text: value.result[0],
+                //     }
+                // ]);
 
 
                 // var message = value.result;
@@ -189,12 +191,12 @@
                     uploadBtn.disabled = false;
             }
 
-            await liff.sendMessages([
-                        {
-                            type: "text",
-                            text: "ไฟล์ไม่ถูกต้อง กรุณาอัปโหลดใหม่อีกครั้ง",
-                        }
-            ]);
+            // await liff.sendMessages([
+            //             {
+            //                 type: "text",
+            //                 text: "ไฟล์ไม่ถูกต้อง กรุณาอัปโหลดใหม่อีกครั้ง",
+            //             }
+            // ]);
 
             setTimeout(() => {
                 liff.closeWindow();
@@ -217,6 +219,9 @@
                     const profile = await liff.getProfile();
 
                     console.log(profile);
+
+                    profileName = profile.displayName;
+
                 }).catch((err) => {
                     console.error('LIFF initialization failed ', err);
                 });
