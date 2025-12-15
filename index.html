@@ -135,7 +135,13 @@
                 // console.log(status);
 
                 var value = data.result;
-                console.log(value.result);
+                console.log(value.result[0]);
+
+                liff.sendMessages([
+                        {
+                            type: 'text',
+                            text: value.result[0]
+                        }]);
 
                 // var message = value.result;
                 // console.log(message);
