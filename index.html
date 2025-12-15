@@ -146,7 +146,7 @@
 
                 if (data.status === 200)
                 {
-                    var message = "สวัสดี คุณ " + profileName + " เลขอ้างอิง 1 : " + data.data.ref1 + "\nยอดเงิน : " + data.data.amount.amount + "\nชำระสำเร็จ";
+                    var message = "สวัสดี คุณ " + profileName + "\nเลขอ้างอิง 1 : " + data.data.ref1 + "\nยอดเงิน : " + data.data.amount.amount + "\nชำระสำเร็จ";
                     console.log(message);
 
                     await liff.sendMessages([
