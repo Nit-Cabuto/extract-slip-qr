@@ -66,21 +66,23 @@
     <script>
 
         const id = "2008674318-sY2GkIQE";
+        //const id = "2006433004-KAVwjP4f";
 
-        const mainpage = async () => {
+
+        // const mainpage = async () => {
             
-            await liff.init({ liffId: id});
+        //     await liff.init({ liffId: id});
 
-            if (!liff.isLoggedIn()) {
-                liff.login();
-            }
+        //     if (!liff.isLoggedIn()) {
+        //         liff.login();
+        //     }
 
-            const profile = await liff.getProfile();
+        //     const profile = await liff.getProfile();
 
-            console.log(profile);
-        };
+        //     console.log(profile);
+        // };
 
-        mainpage();
+        // mainpage();
 
         //---------------------------------------------
 
@@ -119,31 +121,9 @@
                 statusDiv.className = 'success';
                 fileInput.value = '';
 
-                liff
-                    .init({
-                        liffId: id, // Use own liffId
-                    })
-                    .then(() => {
-                        // Start to use liff's api
-                        liff.sendMessages([
-                        {
-                            type: 'text',
-                            text: 'Hello, World!'
-                        }
-                        ]).then(() => {
-                        console.log('message sent');
-                        }).catch((err) => {
-                        console.log('error', err);
-                        });
+                console.log('File ready to be sent:', file.name);
 
-                    })
-                    .catch((err) => {
-                        // Error happens during initialization
-                        console.log(err.code, err.message);
-                    });
-
-                //liff.closeWindow();
-                //liff.init({ liffId: "2008674318-sY2GkIQE-9wXK0e1q" })
+                await sendAlert();
                     
                 // const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
                 //     method: 'POST',
@@ -195,39 +175,52 @@
                     uploadBtn.disabled = false;
             }
 
-            // setTimeout(() => {
-            //     liff.closeWindow();
-            // }, 2000);
+            setTimeout(() => {
+                liff.closeWindow();
+            }, 2000);
         }
 
+        main();
 
-        // function main() {
-        //     liff.init({ liffId: "2008674318-sY2GkIQE" } , function() {
-        //         liff.ready.then(() => {
-        //             // LIFF is ready
-        //             console.log('LIFF Started');
+        async function main() {
+             liff.init({ liffId: id } , function() {
+                liff.ready.then(async () => {
+                    // LIFF is ready
+                    console.log('LIFF Started');
 
-        //             if (liff.isLoggedIn()) {
-        //                     liff.sendMessages([
-        //                     {
-        //                         type: 'text',
-        //                         text: 'รอคอนเฟิร์ม ตรวจสอบการชำระเงิน'
-        //                     }
-        //                 ]);
-        //             }
-        //             else {
+                    if (!liff.isLoggedIn()) {
 
-        //                 liff.login();
-        //                 // const profile = liff.getProfile();
+                        liff.login();
+                    }
 
-        //                 // console.log(profile.userId);
-        //                 // console.log(profile.displayName);
-        //             }
-        //         }).catch((err) => {
-        //             console.error('LIFF initialization failed ', err);
-        //         });
-        //     });
-        // }
+                    const profile = await liff.getProfile();
+
+                    console.log(profile);
+
+
+                }).catch((err) => {
+                    console.error('LIFF initialization failed ', err);
+                });
+            });
+        }
+
+        async function sendAlert() {
+
+            await liff.sendMessages([
+                    {
+                        type: "text",
+                        text: "waiting for approve ...",
+                    },
+                    
+                    console.log("send message")
+                ])
+                .then(() => {
+                    console.log("message sent");
+                })
+                .catch((err) => {
+                    console.log("error", err);
+                });
+        }
 
     </script>
 
