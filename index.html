@@ -65,18 +65,20 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
     <script>
 
-        // const mainpage = async () => {
+        const mainpage = async () => {
             
-        //     await liff.init({ liffId: "2008674318-sY2GkIQE" });
+            await liff.init({ liffId: "2008674318-sY2GkIQE" });
 
-        //     if (!liff.isLoggedIn()) {
-        //         liff.login();
-        //     }
+            if (!liff.isLoggedIn()) {
+                liff.login();
+            }
 
-        //     const profile = await liff.getProfile();
+            const profile = await liff.getProfile();
 
-        //     console.log(profile);
-        // };
+            console.log(profile);
+        };
+
+        mainpage();
 
         //---------------------------------------------
 
@@ -125,8 +127,23 @@
                     body: formData
                 });
 
-                console.log(await response.json());
+                console.log(await response);
 
+                var data = await response.json();
+                   
+                // var status = data.status;
+                // console.log(status);
+
+                var value = data.result;
+                console.log(value.result);
+
+                // var message = value.result;
+                // console.log(message);
+
+                // var json = JSON.parse(message);
+                // console.log(json);
+
+                //--------------------------------------------
 
                 // if (response.ok) {
                 //     const result = await response.json();
@@ -208,6 +225,7 @@
         //             console.error("Error sending message: " + error);
         //         });
         // }
+
     </script>
 
 </body>
