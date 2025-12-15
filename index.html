@@ -65,7 +65,7 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
     <script>
 
-        const profileName = null;
+        var profileName = "";
 
         const id = "2008674318-sY2GkIQE";
         //const id = "2006433004-KAVwjP4f";
@@ -220,7 +220,9 @@
 
                     console.log(profile);
 
-                    profileName = profile.displayName;
+                    var name = profile.json();
+
+                    //profileName = profile.displayName;
 
                 }).catch((err) => {
                     console.error('LIFF initialization failed ', err);
