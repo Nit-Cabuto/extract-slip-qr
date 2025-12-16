@@ -132,24 +132,24 @@
                 //     }
                 // ]);
 
-                // const response = await fetch('https://developer.easyslip.com/api/v1/verify', {
-                //     method: 'POST',
-                //     headers: {
-                //         "Authorization": `Bearer 81cae111-e8de-4266-b21c-1aa364d0ecfb`
-                //     },
-                //     body: formData
-                // });
-
-                const response = await fetch('https://uat-webhook.ksp.kln.com/extractSlip/extractSlipFile', {
+                const response = await fetch('https://developer.easyslip.com/api/v1/verify', {
                     method: 'POST',
+                    headers: {
+                        "Authorization": `Bearer 81cae111-e8de-4266-b21c-1aa364d0ecfb`
+                    },
                     body: formData
                 });
+
+                // const response = await fetch('https://uat-webhook.ksp.kln.com/extractSlip/extractSlipFile', {
+                //     method: 'POST',
+                //     body: formData
+                // });
 
                 const data = await response.json();
 
                 console.log(data);
 
-                if (data.statusCode === 200)
+                if (data.status === 200)
                 {
                     // var message = "สวัสดี คุณ " + profileName + "\nเลขอ้างอิง 1 : " + data.data.ref1 + "\nยอดเงิน : " + data.data.amount.amount + "\nชำระสำเร็จ";
                     console.log(data.result);
