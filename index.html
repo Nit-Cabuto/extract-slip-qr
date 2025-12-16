@@ -149,17 +149,17 @@
 
                 console.log(data);
 
-                if (data.status === 200)
+                if (data.statusCode === 200)
                 {
                     // var message = "สวัสดี คุณ " + profileName + "\nเลขอ้างอิง 1 : " + data.data.ref1 + "\nยอดเงิน : " + data.data.amount.amount + "\nชำระสำเร็จ";
-                    // console.log(message);
+                    console.log(data.result);
 
-                    // await liff.sendMessages([
-                    //     {
-                    //         type: "text",
-                    //         text: message,
-                    //     }
-                    // ]);
+                    await liff.sendMessages([
+                        {
+                            type: "text",
+                            text: data.result,
+                        }
+                    ]);
                 }
 
                 // const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
