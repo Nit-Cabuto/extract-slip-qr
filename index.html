@@ -168,12 +168,12 @@
 
                     console.log(data.result);
                     
-                    // await liff.sendMessages([
-                    //     {
-                    //         type: "text",
-                    //         text: data.result,
-                    //     }
-                    // ]);
+                    await liff.sendMessages([
+                        {
+                            type: "text",
+                            text: data.result,
+                        }
+                    ]);
                 }
 
                 // const response = await fetch('http://localhost:5228/ExtractSlip/ExtractSlipQRCodeExternal', {
