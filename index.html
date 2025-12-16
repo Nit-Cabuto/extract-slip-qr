@@ -143,9 +143,9 @@
 
                 const resultData = await response.json();
 
-                resultData = { resultData , profileName: profileName, userIdLine: userIdLine};
+                const dataJson = { data: resultData , profileName: profileName, userIdLine: userIdLine};
 
-                console.log(resultData);
+                console.log(dataJson);
 
                 if (resultData.status === 200)
                 {
@@ -157,7 +157,7 @@
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify(resultData)
+                        body: JSON.stringify(dataJson)
                         //body: resultData
                     });
 
