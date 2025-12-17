@@ -138,6 +138,23 @@
 
                 console.log(response.status);
 
+                if (response.status !== 200) {
+
+
+                    throw new Error('Upload failed with status ' + response.status);
+
+                    $.unblockUI();
+
+                    await liff.sendMessages([
+                        {
+                            type: "text",
+                            text: "Read QR สลิปไม่สำเร็จ \nกรุณาอติดต่อผู IT Support",
+                        }
+                    ]);
+
+                    return;
+                }
+
                 const resultData = await response.json();
 
                 // --------------------------------------------
