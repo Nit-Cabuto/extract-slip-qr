@@ -136,6 +136,8 @@
 
                 console.log(response);
 
+                console.log(response.status);
+
                 const resultData = await response.json();
 
                 // --------------------------------------------
@@ -300,9 +302,7 @@
 
             setTimeout(() => {
                 liff.closeWindow();
-            }, 500);
-
-            
+            }, 500);  
         }
 
         main();
