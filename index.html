@@ -160,6 +160,20 @@
 
                 var rec = dataName.receiver.account.name.th
                 console.log("receiver : " + rec);
+
+                if (rec != "KERRY")
+                {
+                    var messageError = "ชื่อในสลิปผู้รับ : " + rec + "\nไม่ตรงกับ บัญชีของเรา";
+
+                    await liff.sendMessages([
+                        {
+                            type: "text",
+                            text: messageError,
+                        }
+                    ]);
+
+                    return;
+                }
                 // --------------------------------------------
 
                 const dataJson = { data: resultData , profileName: profileName, userIdLine: userIdLine};
