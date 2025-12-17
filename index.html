@@ -63,6 +63,9 @@
     </div>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://malsup.github.io/jquery.blockUI.js"></script>
+
     <script>
 
         var profileName = null;
@@ -119,6 +122,14 @@
             statusDiv.className = '';
 
             try {
+
+                $.blockUI({
+                    message: '<h4>กำลังอัปโหลด...</h4>',
+                    css: {
+                        padding: '15px',
+                        borderRadius: '8px'
+                    }
+                });
 
                 statusDiv.textContent = `File uploaded successfully: ${file.name}`;
                 statusDiv.className = 'success';
@@ -239,7 +250,7 @@
             //                 text: "ไฟล์ไม่ถูกต้อง กรุณาอัปโหลดใหม่อีกครั้ง",
             //             }
             // ]);
-
+            $.unblockUI();
             setTimeout(() => {
                 liff.closeWindow();
             }, 1000);
