@@ -74,22 +74,6 @@
         const id = "2008674318-sY2GkIQE";
         //const id = "2006433004-KAVwjP4f";
 
-
-        // const mainpage = async () => {
-            
-        //     await liff.init({ liffId: id});
-
-        //     if (!liff.isLoggedIn()) {
-        //         liff.login();
-        //     }
-
-        //     const profile = await liff.getProfile();
-
-        //     console.log(profile);
-        // };
-
-        // mainpage();
-
         //---------------------------------------------
 
         async function uploadFile() {
@@ -309,9 +293,10 @@
             //             }
             // ]);
             $.unblockUI();
+
             setTimeout(() => {
                 liff.closeWindow();
-            }, 1000);
+            }, 500);
         }
 
         main();
@@ -328,13 +313,17 @@
                     }
 
                     const profile = await liff.getProfile();
+                    const accessToken = await liff.getAccessToken();
+                    const idToken = await liff.getIDToken();
 
-                    console.log(profile);
+                    console.log("Profile Name : " + profile);
+                    console.log("Access Token : " + accessToken);
+                    console.log("ID Token : " + idToken);
 
                     var name = profile.displayName;
 
-                    console.log("Profile Name: " + profile.displayName);
-                    console.log("User ID: " + profile.userId);
+                    console.log("Profile Name : " + profile.displayName);
+                    console.log("User ID : " + profile.userId);
 
                     profileName = profile.displayName;
                     userIdLine = profile.userId;
