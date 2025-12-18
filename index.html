@@ -83,6 +83,8 @@
         //const id = "2008674318-sY2GkIQE"; // -- main log in
         const id = "2008716446-QzCHty1r"; // -- log in extract slip
 
+        const CHANNEL_ACCESS_TOKEN = "WCdLOOD1qlAkK4m5AjPCLR2c20UqYURZuki3HsxyVLesLVz0bNoBB4ndY/zu7sxA876VqvdJyC2V+Ykw4ib/Loo+rZgp8vz1v1Bn0NkDpGS2QXlZMmBQ2Nvz1sXCUjw/imsac/wXrHL9l1TpAi8cbQdB04t89/1O/w1cDnyilFU=";
+
         //---------------------------------------------
 
         async function uploadFile() {
@@ -387,7 +389,7 @@
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'Authorization': `Bearer WCdLOOD1qlAkK4m5AjPCLR2c20UqYURZuki3HsxyVLesLVz0bNoBB4ndY/zu7sxA876VqvdJyC2V+Ykw4ib/Loo+rZgp8vz1v1Bn0NkDpGS2QXlZMmBQ2Nvz1sXCUjw/imsac/wXrHL9l1TpAi8cbQdB04t89/1O/w1cDnyilFU=`
+                                'Authorization': `Bearer ${CHANNEL_ACCESS_TOKEN}`
                             },
                             body: JSON.stringify(
                                 {
